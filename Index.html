@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjana Birthday </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/e0559362b2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <input type="checkbox" id="checkbox-cover">
+    <input type="checkbox" id="checkbox-page1">
+    <input type="checkbox" id="checkbox-page2">
+    <input type="checkbox" id="checkbox-page3">
+    <div class="book">
+        <div class="cover">
+            <label for="checkbox-cover"></label>
+            <img class="wish" src="Assets/hb.png" alt="">
+
+            <div class="back-page">
+                <img class="photo" src="Assets/page 1.jpg">
+            </div>
+        </div>
+        <div class="page" id="page1">
+            <div class="front-page">
+                <p> <b> <i>Happy birthday, my dearest.</i></b></p>
+
+                <p> I though our conversations may have diminished, But yah, we both know the reasons why. But fear not,
+                    for
+                    what we share is enough for me and, I believe, for you too.
+                </p>
+                <p> I acknowledge the mistakes I've made, and I know there have been times when I've hurt you. But never
+                    doubt that my intentions were pure; it's just my luck seems to be of that sort.
+                </p>
+                <p>I don't know how to wish properly, but I'm trying. Let's forget all the old things and start anew as <b>friends</b>, at least. I'm just afraid that you'll forget me, so I send you a message daily just to stay on top of your message list.</p>
+
+
+
+                <label class="next" for="checkbox-page1"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page">
+                <img class="photo" src="Assets/page 2.jpg">
+                <label class="prev" for="checkbox-page1"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+        <div class="page" id="page2">
+            <div class="front-page">
+                <p> However, today is your birthday, and it's incredibly special for both of us. So, I felt it should be
+                    marked in a unique way. Hence, I've put together this message. I hope you find it delightful and
+                    touching, just like you are to me.
+                </p>
+                <p> Wishing you a day filled with joy, laughter, and all the love you truly deserve. Happy birthday, My
+                    Dear."</p>
+                <label class="next" for="checkbox-page2"><i class="fas fa-chevron-right"></i></label>
+            </div>
+            <div class="back-page">
+                <img class="photo" src="Assets/page 1.jpg">
+                <label class="prev" for="checkbox-page2"><i class="fas fa-chevron-left"></i></label>
+            </div>
+        </div>
+        <div class="page" id="page3">
+            <div class="front-page">
+                <h2>Arz Kiya Hai....</h2>
+                <p>Bahut khusanuma kal ki raat guzari hai,</p>
+                <p>Kuch tanha par, kuch khaas guzari hai,</p>
+                <p>Na neend aayi, na koi khwaab,</p>
+                <p>Bas aapke hi khayaalon ke saath, guzari hai!</p>
+                <p>Tum par likhna, hum kahaan se shuru karein,</p>
+                <p>Ada se karein, ya vafa se karein,</p>
+                <p>Tum kitne achhe ho, batana hai mumkin,</p>
+                <p>Tumhari tareef apni zubaan se kya kare!</p>
+
+
+            </div>
+        </div>
+        <div class="back-cover"></div>
+    </div>
+
+    <audio id="bgAudio" autoplay loop>
+        <source src="Assets/Good_Morning_to_All(chosic.com).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <script>
+        // Check if audio is currently playing
+        var isPlaying = true;
+
+        // Function to play or pause audio
+        function toggleAudio() {
+            var audio = document.getElementById("bgAudio");
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                console.log("Paused");
+            } else {
+                audio.play();
+                isPlaying = true;
+                console.log("Playing");
+            }
+        }
+
+        // Add event listener for when the page is refreshed
+        window.addEventListener('beforeunload', function (e) {
+            // Save the audio playback state in localStorage
+            localStorage.setItem('audioState', isPlaying);
+        });
+
+        // Restore audio playback state from localStorage
+        window.addEventListener('DOMContentLoaded', function () {
+            var audioState = localStorage.getItem('audioState');
+            if (audioState === 'true') {
+                document.getElementById("bgAudio").play();
+                isPlaying = true;
+            } else {
+                isPlaying = false;
+            }
+        });
+
+        // Call toggleAudio() function when the page loads
+        window.addEventListener('load', function () {
+            toggleAudio();
+        });
+    </script>
+</body>
+
+</html>
